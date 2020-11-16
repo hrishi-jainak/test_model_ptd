@@ -79,7 +79,7 @@ class TestModel:
         self.cons_td_column_group_dict = {}
         self.cons_t_column_d_value_diff_least_dict = {}
         self.cons_t_column_d_value_diff_most_dict = {}
-        print('hi')
+        
 
 
     def add_unique_pt_con(self):
@@ -645,7 +645,26 @@ class TestModel:
             self.sol_df.to_csv('solution_pulp_test_model.csv', encoding='utf-8', index=False)
 
     def run(self):
-        print('hi')
+        self.add_unique_pt_con()
+        self.add_u_grid_threshold_con()
+        self.add_u_row_max_con()
+        self.add_p_d_value_range_con()
+        self.add_m_grid_threshold_con()
+        self.add_p_row_d_value_order_con()
+        self.add_pdt_bin_pdt_val_relation_con()
+        self.add_p_row_d_successive_diff_con()
+        self.add_p_d_row_least_most_occurrence_con()
+        self.add_pdt_bin_pd_row_relation_con()
+        self.add_pdt_bin_td_column_relation_con()
+        self.add_td_column_group_con()
+        self.add_t_column_d_value_diff_con()
+        self.generate_ptd_bin_var()
+        self.generate_ptd_val_var()
+        self.generate_pd_row_var()
+        self.generate_td_column_var()
+        self.save_as_lp_pulp()
+        self.solve_model()
+        self.get_solution()
 
 
 
